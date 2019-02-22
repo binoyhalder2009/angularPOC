@@ -1,0 +1,18 @@
+:host[acl-component~="1.0"] img{
+    width: 200px; 
+    height: 200px;
+}
+
+:host[acl-component~="1.0"][acl-component~="product-gallery"] img{
+    width: 300px; 
+    height: 300px;
+}
+ 
+:host[acl-component~="1.0"][acl-component~="product-gallery"][acl-component~="blurred"] img{
+    width: 500px; 
+    height: 500px;
+}
+
+
+
+

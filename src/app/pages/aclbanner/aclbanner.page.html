@@ -1,0 +1,45 @@
+<div class="acl-app-component">
+    {{ title }}
+</div>
+{{aclBanners[0].image.version}} {{aclBanners[0].image.variant}} {{aclBanners[0].image.state}}
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="https://designsystem.homedepot.com/uxicon/uxicon.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<section>
+    <div class="bannerpage-main">
+        <div id="bannerInfo" class="col-md-9 banner-container">
+            <acl-banner attr.acl-component='{{aclBanners[0].image.version}} {{aclBanners[0].image.variant}} {{aclBanners[0].image.state}}' aclBannerUrl="{{aclBanners[0].image.content.src}}"></acl-banner>
+        </div>
+        <div id="deliveryInfo" class="col-md-3 delivery-info">       
+            <div id="customInfo" class="custom-info">   
+
+                <table>
+                    <tr>
+                        <th><label>VARIANTS: <span></span></label></th>
+                        <th>                                
+                            <select (change)="getStatesForSelectedVariant($event.target.value)">
+                                <option value="0">--- Select Variant ---</option>
+                                <option *ngFor="let variant of aclBannerVariants" value={{variant.variantId}}>
+                                    {{variant.variant}}
+                                </option>    
+                            </select>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><label>STATES: <span></span></label></th>
+                        <th>
+                            <select (change)="getActiveVariantState($event.target.value)">
+                                <option value="0">--- Select Variant ---</option>
+                                <option *ngFor="let state of aclBannerStates" value={{state.bannerState.stateId}}>
+                                    {{state.bannerState.state}}
+                                </option>  
+                            </select>                                
+                        </th>
+                    </tr>        
+                </table>      
+                  
+            </div>
+        </div>
+    </div>
+</section>
+
